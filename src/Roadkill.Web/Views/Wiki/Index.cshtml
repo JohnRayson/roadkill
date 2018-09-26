@@ -15,6 +15,17 @@
 }
 
 <h1 class="pagetitle">@Model.Title</h1>
+<script src="@(Url.Content("~/Assets/Scripts/highlight/highlight.pack.js"))" ></script>
+<link rel="stylesheet" href="@(Url.Content("~/Assets/CSS/highlight/vs.css"))" />
+<script>
+    // enable the syntax highlighting from highlight.js
+    $(document).ready(function () {
+        
+        $("pre code").each(function (i, block) {
+            hljs.highlightBlock(block);
+        });
+    });
+</script>
 
 <div id="pagecontent">
 @MvcHtmlString.Create(Model.ContentAsHtml)
